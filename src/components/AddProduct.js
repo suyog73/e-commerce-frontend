@@ -8,7 +8,7 @@ const baseUrl = `${APIUrl}/product/add`;
 const AddProduct = () => {
 
     const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState(''); 
     const [category, setCategory] = useState('');
     const [company, setCompany] = useState('');
     const [error, setError] = useState(false);

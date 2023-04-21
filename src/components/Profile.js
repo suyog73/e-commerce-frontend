@@ -6,7 +6,7 @@ const Profile = () => {
         const result = JSON.parse(localStorage.getItem("user"));
         setUser(result);
     }, [])
-
+ 
 
     return <div className="profile-container">
         <div className="profile-header">

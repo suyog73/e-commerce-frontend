@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const APIUrl = process.env.REACT_APP_API_URL;
-const Login = () => {
+const Login = () => { 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 

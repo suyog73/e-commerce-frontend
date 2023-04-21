@@ -5,7 +5,6 @@ const APIUrl = process.env.REACT_APP_API_URL;
 console.log(APIUrl);
 const baseUrl = APIUrl + "/user/register";
 
-
 const Signup = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
