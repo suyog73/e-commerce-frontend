@@ -9,6 +9,7 @@ import Login from './components/Login';
 import AddProduct from './components/AddProduct';
 import ProductList from './components/ProductList';
 import UpdateProduct from './components/UpdateProduct';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
 
             <Route path='/' element={<ProductList />} />
             <Route path='/add' element={<AddProduct />} />
-            <Route path='/update/:id' element={<UpdateProduct/>} />
-            <Route path='/logout' element={<h1>Logout</h1>} />
-            <Route path='/profile' element={<h1>Profile</h1>} />
+            <Route path='/update/:id' element={<UpdateProduct />} />
+            <Route path='/logout'/>
+            <Route path='/profile' element={<Profile />} />
 
           </Route>
 

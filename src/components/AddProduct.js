@@ -6,10 +6,10 @@ const baseUrl = "http://localhost:5000/product/add";
 
 const AddProduct = () => {
 
-    const [name, setName] = useState('iPhone 14');
-    const [price, setPrice] = useState('1,50,000');
-    const [category, setCategory] = useState('Mobile Phone');
-    const [company, setCompany] = useState('Apple');
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
+    const [company, setCompany] = useState('');
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
@@ -27,12 +27,14 @@ const AddProduct = () => {
             method: "post",
             body: JSON.stringify({ name, price, category, company, userId }),
             headers: {
+                authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
                 "Content-Type": "application/json"
             }
+
         })
 
         result = await result.json();
-        
+
         console.log(result);
 
         navigate("/");

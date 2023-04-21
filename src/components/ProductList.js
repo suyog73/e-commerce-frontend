@@ -11,7 +11,11 @@ const ProductList = () => {
     }, [])
 
     const getProducts = async () => {
-        let result = await fetch(baseUrl + "/get/all");
+        let result = await fetch(baseUrl + "/get/all", {
+            headers: {
+                authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
+        });
         result = await result.json();
 
         setProducts(result);
@@ -20,7 +24,10 @@ const ProductList = () => {
 
     const deleteProduct = async (id) => {
         let result = await fetch(baseUrl + `/delete/${id}`, {
-            method: "Delete"
+            method: "Delete",
+            headers: {
+                authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
         });
         result = await result.json();
 
@@ -66,8 +73,8 @@ const ProductList = () => {
                     <li>₹{item.price}</li>
                     <li>{item.category}</li>
                     <li>
-                        <button onClick={() => deleteProduct(item._id)}>Delete</button>
-                        <Link to={"/update/" + item._id}>Update</Link>
+                        <button className="delete-button" onClick={() => deleteProduct(item._id)}>Delete</button>
+                        <Link className="update-button" to={"/update/" + item._id}>Update</Link>
                     </li>
 
                 </ul>
