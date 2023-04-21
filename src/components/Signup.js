@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const baseUrl = "http://localhost:5000/user/register";
+const APIUrl = process.env.REACT_APP_API_URL;
+console.log(APIUrl);
+const baseUrl = APIUrl + "/user/register";
 
 
 const Signup = () => {

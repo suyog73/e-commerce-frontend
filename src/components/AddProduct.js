@@ -1,7 +1,8 @@
 import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const baseUrl = "http://localhost:5000/product/add";
+const APIUrl = process.env.REACT_APP_API_URL;
+const baseUrl = `${APIUrl}/product/add`;
 
 
 const AddProduct = () => {

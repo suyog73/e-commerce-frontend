@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const baseUrl = "http://localhost:5000/user/login";
-
-
+const APIUrl = process.env.REACT_APP_API_URL;
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,11 +11,12 @@ const Login = () => {
     useEffect(() => {
         const auth = localStorage.getItem("user");
         if (auth) {
+
             navigate('/');
         }
-    }, [
-        
-    ])
+    })
+
+    const baseUrl = APIUrl + "/user/login";
 
 
     const handleSubmit = async () => {

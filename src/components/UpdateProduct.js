@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const baseUrl = "http://localhost:5000/product";
+const APIUrl = process.env.REACT_APP_API_URL;
+const baseUrl = APIUrl + "/product";
 
 
 const UpdateProduct = () => {
@@ -36,8 +37,6 @@ const UpdateProduct = () => {
         }
     }
 
-
-
     const updateProduct = async () => {
         if (!name || !price || !category || !company) {
             setError(true);
@@ -45,7 +44,7 @@ const UpdateProduct = () => {
         }
 
 
-        let result = await fetch(baseUrl + "/update/" + params.id, {
+        await fetch(baseUrl + "/update/" + params.id, {
             method: "put",
             body: JSON.stringify({ name, price, category, company }),
             headers: {
@@ -53,8 +52,6 @@ const UpdateProduct = () => {
                 "Content-Type": "application/json"
             }
         })
-
-        result = await result.json();
 
         navigate("/");
     }
